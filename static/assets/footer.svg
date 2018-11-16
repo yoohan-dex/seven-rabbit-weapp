@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="30px" viewBox="0 0 375 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-8" transform="translate(0.000000, -231.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M0,231 C62.5,241 125,246 187.5,246 C250,246 312.5,241 375,231 L375,261 L0,261 L0,231 Z" id="Rectangle-3"></path>
+        </g>
+    </g>
+</svg>
