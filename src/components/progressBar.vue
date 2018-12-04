@@ -42,6 +42,7 @@
           <div class="express-time">{{item.time}}</div>
         </div>
         <div class="showAll" v-if="expressData" @click="toggleAllExpressData">{{showAll ? '收起' : '显示所有快递信息'}}</div>
+        <div class="showAll" v-if="expressError">快递信息：{{expressError}}</div>
         <spin :loading="pending"></spin>
       </div>
     </div>
@@ -80,7 +81,8 @@ export default {
     'pending',
     'getIssueReason',
     'setIssueReason',
-    'handleFinish'
+    'handleFinish',
+    'expressError'
   ],
   name: 'progressBar',
   components: { spin },
@@ -161,10 +163,14 @@ export default {
       this.issuePanelShow = false
     },
     async scanBarCode() {
-      const { result } = await wxp.scanCode({ scanType: ['barCode'] })
-      console.log('result: ', result)
       try {
-        this.commitExpress({ expressType: this.express, expressNum: result })
+        const { result } = await wxp.scanCode({ scanType: ['barCode'] })
+        console.log('result: ', result)
+        try {
+          this.commitExpress({ expressType: this.express, expressNum: result })
+        } catch (e) {
+          console.log('e', e)
+        }
       } catch (e) {
         console.log('e', e)
       }

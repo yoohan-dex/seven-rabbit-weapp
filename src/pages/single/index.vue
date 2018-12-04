@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import card from '@/components/card'
 import grid from '@/components/grid'
 import navigation from '@/components/navigation'
 import category from '@/components/category'
@@ -76,7 +75,6 @@ export default {
   components: {
     navigation,
     category,
-    card,
     grid,
     filterRow,
     filterPanel,

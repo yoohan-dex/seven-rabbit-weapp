@@ -15,7 +15,7 @@
       </div>
       <div class="progress-wrap">
         <div class="title">工厂进度</div>
-        <progressBar v-if="orderDetail" :order="orderDetail" :allowControll="allowControll" :nextStep="handleNextStep" :backStep="handleBackStep" :commitExpress="commitExpress" :pending="expressPending" :expressData="express" :getIssueReason="getIssueReason" :setIssueReason="handleSetIssue" :handleFinish="handleFinishOrder"></progressBar>
+        <progressBar v-if="orderDetail" :order="orderDetail" :allowControll="allowControll" :nextStep="handleNextStep" :backStep="handleBackStep" :commitExpress="commitExpress" :pending="expressPending" :expressData="express" :getIssueReason="getIssueReason" :setIssueReason="handleSetIssue" :handleFinish="handleFinishOrder" :expressError="expressError"></progressBar>
       </div>
       <div class="payment-status" v-if="admin">
         <div class="title">收款控制</div>
@@ -139,7 +139,7 @@ export default {
     progressBar
   },
   computed: {
-    ...mapState('orders', ['orderDetail', 'expressPending', 'express']),
+    ...mapState('orders', ['orderDetail', 'expressPending', 'express', 'expressError']),
     ...mapState('global', ['isX']),
     allowControll() {
       return this.role && (this.role === 'admin' || this.role === 'operator')

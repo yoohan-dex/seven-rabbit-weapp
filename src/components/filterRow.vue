@@ -175,16 +175,17 @@ export default {
   align-items: center;
   justify-content: center;
   height: 30px;
-  padding: 5px 10px;
+  padding: 5px 15px;
   margin: 10px 5px;
   font-size: 14px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  // border: 2px solid rgba(0, 0, 0, .1);
+  border-radius: 20px;
   transition: 0.5s cubic-bezier(0.05, 0.82, 0.23, 1);
   overflow: hidden;
   z-index: 9;
-  background: $primaryLightColor;
-  color: $primaryColor;
+  background: $lighterColor;
+  color: $tagColor;
 }
 .item-selected {
   color: white;

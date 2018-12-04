@@ -6,6 +6,7 @@ const state = {
   pending: false,
   express: '',
   expressPending: false,
+  expressError: '',
   msg: '',
   allOrders: []
 }
@@ -37,6 +38,13 @@ const mutations = {
   },
   saveExpressData(state, payload) {
     state.express = payload
+  },
+  expressError(state, payload) {
+    state.expressError = payload
+  },
+  clearExpress(state) {
+    state.express = ''
+    state.expressError = ''
   }
 }
 
@@ -99,6 +107,7 @@ const actions = {
       method: 'post'
     })
     commit('saveOrderDetail', order)
+    commit('clearExpress')
     dispatch('checkExpress', order.id)
   },
 
@@ -116,8 +125,13 @@ const actions = {
     if (state.expressPending) return
     commit('expressPending', true)
     const res = await Vue.iBox.http('checkExpress', payload)()
-    commit('expressPending', false)
-    commit('saveExpressData', res)
+    if (res.status === '200') {
+      commit('expressPending', false)
+      commit('saveExpressData', res)
+    } else {
+      commit('expressPending', false)
+      commit('expressError', res.message)
+    }
   },
   async search({ commit }, query) {
     try {

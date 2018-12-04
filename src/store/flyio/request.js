@@ -32,8 +32,8 @@ const handleRequest = (url = '', data = {}) => {
     }
     console.log('test', JSON.stringify(test))
     let flyio = Flyio.request(
-      // `https://www.hotbody.wang/${_url}${param}`,
-      `http://192.168.0.110:3000/${_url}${param}`,
+      `https://www.hotbody.wang/${_url}${param}`,
+      // `http://192.168.0.110:3000/${_url}${param}`,
       data,
       {
         ...Config.flyConfig,
